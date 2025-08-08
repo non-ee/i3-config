@@ -4,11 +4,11 @@
 
 * {
     BG:    #0a0908ff;    // Dark background with a hint of purple
-    BGA:   #62b6cbff;    // Neon pink for active backgrounds
+    BGA:   #f5ebe0ff;    // Neon pink for active backgrounds
     FG:    #e8e5daff;    // Bright cyan for foreground text
     FGA:   #ff007cff;    // Neon pink accent for emphasized foreground text
-    BDR:   #151021ff;    // Slightly lighter dark color for borders
-    SEL:   #364958ff;    // Dark purple selection background
+    BDR:   #f1f1f1ff;    // Slightly lighter dark color for borders
+    SEL:   #0f0f0fff;    // Dark purple selection background
     UGT:   #ff00ccff;    // Bright magenta for urgent highlights
     IMG:   #ffd700ff;    // Cyberpunk yellow for images or highlights
     OFF:   #3e3b4fff;    // Muted purple-gray for inactive elements
@@ -28,7 +28,7 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         3px;
+    border:                         2px;
     border-color:                   @BDR;
     border-radius:                  10px;
     width:                          35%;
