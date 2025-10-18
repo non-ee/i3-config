@@ -4,7 +4,7 @@
 
 * {
     BG:    #0a0908ff;    // Dark background with a hint of purple
-    BGA:   #f5ebe0ff;    // Neon pink for active backgrounds
+    BGA:   #f1bf98ff;    // Neon pink for active backgrounds
     FG:    #e8e5daff;    // Bright cyan for foreground text
     FGA:   #ff007cff;    // Neon pink accent for emphasized foreground text
     BDR:   #f1f1f1ff;    // Slightly lighter dark color for borders
@@ -28,8 +28,8 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         2px;
-    border-color:                   @BDR;
+    border:                         3px;
+    border-color:                   @BGA;
     border-radius:                  10px;
     width:                          35%;
     anchor:                         center;
