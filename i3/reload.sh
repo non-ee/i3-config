@@ -9,11 +9,11 @@ run_once() {
 }
 
 feh --bg-fill ~/.config/i3/wallpaper.jpg
-run_once autotiling &
-run_once picom --config ${SCRIPTPATH}/external/picom.conf &> /dev/null &
+run_once autotiling-rs &
+run_once picom &
 
 
-killall -q polybar
+killall -q poly
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar, using default config location ~/.config/polybar/config

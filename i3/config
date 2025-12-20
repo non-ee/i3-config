@@ -92,6 +92,8 @@ bindsym $mod+u workspace prev_on_output
 
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
+bindsym $mod+n workspace next
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
