@@ -10,7 +10,7 @@ run_once() {
 
 feh --bg-fill ${SCRIPTPATH}/wallpaper.jpg
 
-run_once autotiling-rs
+# run_once autotiling-rs
 run_once picom --config $SCRIPTPATH/external/picom.conf
 
 # Launch Polybar, using default config location ~/.config/polybar/config

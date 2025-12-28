@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:monospace 8
+font pango:JetBrainsMono Nerd Font 10
 default_border pixel 3
 
 gaps outer 10
@@ -48,16 +48,17 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split orientation
-bindsym $mod+b split h
-bindsym $mod+v split v
+#  Stacking / Tabbed toggle
+bindsym $mod+s layout toggle tabbed stacking
 
+# Split, fullscreen, floating toggle
+bindsym $mod+w layout toggle split
 bindsym $mod+f fullscreen toggle
 bindsym $mod+t floating toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout toggle stacking tabbed
-bindsym $mod+Space layout toggle split
+# Split orientation
+bindsym $mod+b split h
+bindsym $mod+v split v
 
 # change focus between tiling / floating windows
 bindsym $mod+m focus mode_toggle; exec $warpmouse
@@ -110,9 +111,6 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+o move container output next; focus output next
-bindsym $mod+Control+o move workspace to output next
-bindsym $mod+Control+s exec ~/.config/i3/scripts/swapws.sh
-bindsym $mod+w exec ~/.config/i3/scripts/swapws.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -157,4 +155,4 @@ mode "swap" {
 bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #ffd166   #ffd166
+client.focused          #000000 #ffdac6 #000000 #ffdac6   #ffdac6
