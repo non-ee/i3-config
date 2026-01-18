@@ -1,9 +1,10 @@
 set $mod Mod4
+set $alt Mod1
 font pango:JetBrainsMono Nerd Font 10
 default_border pixel 2
 
 gaps outer 0
-gaps inner 5
+gaps inner 0
 focus_on_window_activation focus
 workspace_auto_back_and_forth yes
 
@@ -12,7 +13,6 @@ tiling_drag modifier titlebar
 title_align center
 
 ## Start up & Reload
-exec --no-startup-id setxkbmap -model pc104 -layout jp,kh -option grp:win_space_toggle
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id $HOME/.config/i3/autostart.sh
 
@@ -27,12 +27,22 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
+bindsym $alt+Up exec --no-startup-id amixer -q set Master 5%+
+bindsym $alt+Down exec --no-startup-id amixer -q set Master 5%-
+bindsym $alt+period exec --no-startup-id playerctl next
+bindsym $alt+comma exec --no-startup-id playerctl previous
+
+
 # Programs
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nemo
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+p exec --no-startup-id $HOME/.config/rofi/powermenu/powermenu.sh
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
+bindsym $mod+Shift+d exec --no-startup-id $HOME/.config/rofi/autorandr/launcher.sh
+
+bindsym $alt+Tab exec --no-startup-id rofi -show window
 
 # kill focused window
 bindsym $mod+q kill
@@ -51,7 +61,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 #  Stacking / Tabbed toggle
-bindsym $mod+s layout toggle tabbed stacking
+bindsym $mod+s layout tabbed
 
 # Split, fullscreen, floating toggle
 bindsym $mod+w layout toggle split
@@ -67,6 +77,7 @@ bindsym $mod+m focus mode_toggle; exec $warpmouse
 
 # Toggle bar
 bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle
+# bindsym $mod+Shift+b bar mode toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
@@ -121,13 +132,18 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q i3-msg exit
+
+
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 20 px
-        bindsym j resize grow height 20 px
-        bindsym k resize shrink height 20 px
-        bindsym l resize grow width 20 px
+        bindsym h resize shrink width 50 px
+        bindsym j resize grow height 50 px
+        bindsym k resize shrink height 50 px
+        bindsym l resize grow width 50 px
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -141,9 +157,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-
 mode "swap" {
 	# change focus (without mod)
 	bindsym h focus left
@@ -155,7 +168,26 @@ mode "swap" {
 	bindsym Escape unmark "swapee"; mode "default";
 }
 
-bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #000000 #ffdac6 #000000 #ffdac6   #ffdac6
+
+# bar {
+#     status_command i3status --config ~/.config/i3/external/i3status.conf
+#     modifier none
+#
+#     workspace_min_width 30
+#     font pango:JetBrainsMono Nerd Font 12
+#     tray_output primary
+#     tray_padding 3
+#
+#     separator_symbol "|"
+#
+#     colors {
+#         background #282a36
+#         statusline #faedcd
+#         separator #6272a4
+#
+#         focused_workspace  #4c7899 #415a77 #faedcd
+#     }
+# }

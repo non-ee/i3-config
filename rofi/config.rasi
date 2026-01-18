@@ -1,5 +1,4 @@
-@theme "/home/babyshark/.config/rofi/launcher.rasi"
-
 configuration {
     show-icons: true;
 }
+@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"

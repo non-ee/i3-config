@@ -9,6 +9,7 @@ run_once() {
 }
 
 feh --bg-fill ${SCRIPTPATH}/wallpaper.jpg
+setxkbmap -model pc104 -layout jp,kh -option grp:win_space_toggle
 
 # run_once autotiling-rs
 run_once picom --config $SCRIPTPATH/external/picom.conf
