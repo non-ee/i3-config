@@ -8,7 +8,7 @@ run_once() {
     fi
 }
 
-feh --bg-fill ${SCRIPTPATH}/wallpaper.jpg
+feh --bg-fill ${SCRIPTPATH}/wallpaper.png
 setxkbmap -model pc104 -layout jp,kh -option grp:win_space_toggle
 
 # run_once autotiling-rs
